@@ -103,8 +103,8 @@ body {
 	margin:10px 0 0 10px;
 }
 #top #rightHeader #photo .mytravel {
-	width:200px;
-	height:300px;
+	width:180px;
+	height:315px;
 	border:2px solid #EEEDEB;
 	background:#fff;
 	position:absolute;
@@ -113,22 +113,56 @@ body {
 }
 #top #rightHeader #photo .mytravel ul li {
 	display:block;
-	
-	height:30px;
-	line-height:30px;
+	height:35px;
 }
 #top #rightHeader #photo .mytravel ul li:hover {
 	background:#F2F2F2;
 }
-
 #top #rightHeader #photo .mytravel ul li a {
-font-size:16px;
+	background-image:url("../images/icon_user_menu.png");
+	background-repeat:no-repeat;
+	font-size:14px;
 	display:block;
-	
+	padding-left:35px;
+	color:#666;
+	height:35px;
+	line-height:35px;
 }
 #top #rightHeader #photo .mytravel ul li a:hover {
 	text-decoration:none;
 }
+
+#top #rightHeader #photo .mytravel ul li a.self {
+	background-position:15px 10px;
+	border-bottom:1px solid #ccc;
+}
+#top #rightHeader #photo .mytravel ul li a.album {
+	background-position:15px -428px;
+}
+#top #rightHeader #photo .mytravel ul li a.attention {
+	background-position:15px -268px;
+}
+#top #rightHeader #photo .mytravel ul li a.share {
+	background-position:15px -388px;
+}
+#top #rightHeader #photo .mytravel ul li a.collect {
+	background-position:15px -308px;
+}
+#top #rightHeader #photo .mytravel ul li a.about {
+	background-position:15px -348px;
+}
+#top #rightHeader #photo .mytravel ul li a.comment {
+	background-position:15px -505px;
+}
+#top #rightHeader #photo .mytravel ul li a.setting {
+	border-top:1px solid #ccc;
+	background-position:15px -148px;
+}
+#top #rightHeader #photo .mytravel ul li a.logout {
+	background-position:15px -188px;
+}
+
+
 
 #main {
 	padding:15px 0 0 10px;
@@ -136,13 +170,6 @@ font-size:16px;
 	margin:0 auto;
 }
 
-#main a {
-	color:#333;
-}
-
-#main .container-fluid {
-	
-}
 #main #masonry .box {
 	margin-bottom: 12px;
 	float: left;
@@ -153,6 +180,27 @@ font-size:16px;
 #main #masonry .box .img {
 	max-width: 100%;
 }
+#main #masonry .box .img .btns {
+	width:236px;
+	background:rgb(200,200,200);
+	position:absolute;
+	border:1px solid orange;
+}
+#main #masonry .box .img .btns a {
+	display:block;
+	width:50px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+}
+#main #masonry .box .img .btns a.col {
+	float:left;
+	background:red;
+}
+#main #masonry .box .img .btns a.fav {
+	background:green;
+	float:right;
+}
 
 #main #masonry .title {
 	margin:0 auto;
@@ -161,7 +209,10 @@ font-size:16px;
 #main #masonry .title .desc {
 	padding:5px 0 10px 0;
 }
-#main #masonry .fav {
+#main #masonry .title .desc a {
+	color:#333;
+ }
+#main #masonry .title .favnum {
 	color:#8C7E7E;
 	padding-bottom:10px;
 	margin-top:-5px;
@@ -185,14 +236,18 @@ font-size:16px;
 	padding:3px;
 }
 #main #masonry .comment dd {
-	color:#999999;
 	width:160px;
 	height:20px;
 	line-height:20px;
 	float:left;
 	padding-left:3px;
 }
+#main #masonry .comment dd a {
+	color:#999999;
+}
 #main #masonry .comment dd.author {
-	color:#717171;
 	margin-top:5px;
+}
+#main #masonry .comment dd.author a{
+	color:#717171;
 }

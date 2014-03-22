@@ -16,19 +16,21 @@
 		<div id="logo">
 		</div>
 		<div id="rightHeader">
-			<div id="add"><a href=""><em></em></a></div>
-			<div id="message"><a href=""><em></em></a></div>
+			<div id="add"><a href="" title="添加"><em></em></a></div>
+			<div id="message"><a href="" title="通知"><em></em></a></div>
 			<div id="photo">
-				<a href=""><img src="images/tx.jpg"/></a>
+				<a href="" title="头像"><img src="images/tx.jpg"/></a>
 				<div class="mytravel" style="display:none;">
 					<ul>
-						<li><a href="">我的图游</a></li>
-						<li><a href="">我的</a></li>
-						<li><a href="">我的相册</a></li>
-						<li><a href="">我的收藏</a></li>
-						<li><a href="">我的评论</a></li>
-						<li><a href="">帐号设置</a></li>
-						<li><a href="">退出登录</a></li>
+						<li><a href="" class="self">我的图游</a></li>
+						<li><a href="" class="album">我的相册</a></li>
+						<li><a href="" class="attention">我的关注</a></li>
+						<li><a href="" class="share">我的分享</a></li>
+						<li><a href="" class="collect">我的收藏</a></li>
+						<li><a href="" class="about">与我相关</a></li>
+						<li><a href="" class="comment">我的评论</a></li>
+						<li><a href="" class="setting">帐号设置</a></li>
+						<li><a href="" class="logout">退出登录</a></li>
 					</ul>
 				</div>
 			</div>
@@ -39,20 +41,20 @@
 			<div class="box">
 				<div class="img">
 					<a href="#"><img src="images/2.jpg"></a>
-					<!--<div class="btns">
-						<a href="#" class="">转采<span class="num">(102)</span></a>
-						<div class="f-r"><a href="#" class=""><span class="text">收藏</span><span class="num">(0)</span></a></div>
-					</div>-->
+					<div class="btns" style="display:none;">
+						<a href="#" class="fav">喜欢</a>
+						<a href="#" class="col">收藏</a>
+					</div>
 				</div>
 				<div class="title">
 					<div class="desc"><a href="#">这是一只可爱的猫</a></div>
-					<div class="fav">喜欢(122)</div>
+					<div class="favnum">喜欢(122)</div>
 				</div>
 				<div class="comment">
 					<dl>
-						<dt><img src="images/tx1.jpg"/></dt>
-						<dd class="author">张益达</dd>
-						<dd>在北京的日子</dd>
+						<dt><a href="#"><img src="images/tx1.jpg"/></a></dt>
+						<dd class="author"><a href="#">张益达</a></dd>
+						<dd><a href="#">在北京的日子</a></dd>
 					</dl>
 				</div>
 			</div>
@@ -61,14 +63,16 @@
 
 </body>
 <script type="text/javascript">
-var totalPic = 1;
-var flag = true;
 
-$(document).ready(function () {
+var totalPic = 1; //记录加载的图片的总数
+var flag = true;  //标记下拉时是否继续加载图片
+
+function TouXiang() {
+	/*******我的头像事件 start******/
 	var $photo = $('#photo');
 	$photo.mouseenter(function () {
 		 var y = $photo.position().top+46;//获取当前鼠标滑过的内容的顶部坐标
-		 var x = $photo.position().left-154;
+		 var x = $photo.position().left-134;
 		 $('.mytravel').css('top', y);
 		 $('.mytravel').css('left', x);
 		 $('.mytravel').css('z-index','999');
@@ -79,10 +83,10 @@ $(document).ready(function () {
 		 $('.mytravel').hide();
 
 	});
-});
+	/*******我的头像事件 end******/
+}
 
-<!--
- $(function(){
+function WaterFall(){
 	var $container = $('#masonry');
 	$container.imagesLoaded( function(){
 		$container.masonry({
@@ -97,14 +101,25 @@ $(document).ready(function () {
 		// 当滚动到最底部以上100像素时， 加载新内容
 		if ($(document).height() - $(this).scrollTop() - $(this).height()<50){
 			if (flag){
+				//调用getList()方法获取要加载的图片信息
 				var $boxes = $(getList());
 				$container.append($boxes).masonry('appended',$boxes);
 			}
 		}
 		item_callback();
 	});
-});
+}
 
+/*
+function WaterFallCallBack() {
+	item_callback();
+	$('.item').fadeIn();
+}
+
+function item_callback() {
+	item_masonry();
+}
+*/
 function getList() {
 	var boxes = [],count = parseInt(Math.random()*40+1);
 	for (var i=2; i <=count; i++ ) {
@@ -120,48 +135,59 @@ function getList() {
 	return boxes.join("");
 };
 
-$(function () {
+function init() {
 	var $container = $('#masonry');
 	var $div;
 	var fav;
 	for(var i=3; i<=41; i++) {
 		if(i!=17 && i!=9 && i!=14 && i!=15 && i!=5 && i!=11) {
 			totalPic++;
-			$img = $('<div class="img"><a href="#"><img src="images//'+i+'.jpg"></a></div>');
+			$img = $('<div class="img"><a href="#"><img src="images//'+i+'.jpg"></a><div class="btns" style="display:none;">'
+						+'<a href="#" class="col">收藏</a>'
+						+'<a href="#" class="fav">喜欢</a>'
+					+'</div></div>');
 			if(i%4!=0) {
-				fav = '<div class="fav">喜欢(122)</div>'
+				fav = '<div class="favnum">喜欢(122)</div>'
 			} else {
 				fav = '';
 			}
 			$title = $('<div class="title"><div class="desc"><a href="#">这是一只可爱的猫</a></div>'+fav+'</div>');
-			$comment = $('<div class="comment"><dl><dt><img src="images/tx1.jpg"/></dt><dd class="author">张益达</dd>'
-					+'<dd>在北京的日子</dd></dl></div>');
+			$comment = $('<div class="comment"><dl><dt><a href="#"><img src="images/tx1.jpg"/></a></dt><dd class="author"><a href="#">张益达</a></dd>'
+					+'<dd><a href="#">在北京的日子</a></dd></dl></div>');
 			$div = $('<div class="box"></div>');
 			$div.append($img).append($title).append($comment);
 			$container.append($div);
 		}
 	}
-});
-
-function item_callback() {
-	/*$('.box').mouseover(function () {
-		$(this).css('box-shadow', '0 1px 5px rgba(35,25,25,0.5)');
-		$('.btns',this).show();
-	}).mouseout(function(){
-		$(this).css('box-shadow', '0 1px 3px rgba(34,25,25,0.2)');
-		$('.btns',this).hide();
-	});*/
-	item_masonry();
 }
 
-$(function () {
-	item_callback();
-	$('.item').fadeIn();
+function FavShow() {
+	var $btns = $(this).children().eq(0).children('div').eq(0);
+	$btns.css('top', 0);
+	$btns.css('left', 0);
+	$btns.css('z-index','888');
+	$btns.show();
+}
+function FavHide() {
+	$(this).children().eq(0).children('div').eq(0).hide();
+}
+
+
+$(document).ready(function () {
+	TouXiang();
+	init();
+	WaterFall();
+
+
+	var boxEvent = function () {
+		var $box = $('#masonry').children();
+		$box.each(function () {
+			$(this).mouseenter(FavShow);
+			$(this).mouseleave(FavHide);
+		});
+	}
+	boxEvent();
 });
-
-
-
--->
 </script>
 
 </html>
