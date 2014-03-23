@@ -1,21 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>TravelImg</title>
+	<title>TwoYou</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/basic.css"  >
+	<link type="text/css" rel="stylesheet" href="css/index.css"  >
 </head>
 <body>
 	<div id="top">
 		<div id="leftHeader">
 			<h1><em></em></h1>
-			<input type="text" name="search" id="searchInput" />
+			<form name="searchForm" aciton="#" method="get">
+				<input type="text" name="key" id="searchInput" />
+				<input type="submit" id="searchBtn" value="search" />
+			</form>
 		</div>
 		<div id="logo">
 		</div>
 		<div id="rightHeader">
+<!-- 登录样式
+		<div id="rightHeader">
+			<dl id="login">
+				<dd><a href="">注册</a></dd>
+				<dd><a href="">登录</a></dd>
+			</dl>
+		</div>
+-->
 			<div id="add"><a href="" title="添加"><em></em></a></div>
 			<div id="message"><a href="" title="通知"><em></em></a></div>
 			<div id="photo">
@@ -36,14 +48,15 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="main">
 		<div id="masonry" class="container-fluid">
 			<div class="box">
 				<div class="img">
 					<a href="#"><img src="images/2.jpg"></a>
 					<div class="btns" style="display:none;">
-						<a href="#" class="fav">喜欢</a>
 						<a href="#" class="col">收藏</a>
+						<a href="#" class="fav"><span></span></a>
 					</div>
 				</div>
 				<div class="title">
@@ -66,6 +79,25 @@
 
 var totalPic = 1; //记录加载的图片的总数
 var flag = true;  //标记下拉时是否继续加载图片
+
+function FavShow() {
+	var $btns = $(this).children().eq(0).children('div').eq(0);
+	$btns.css('top', 0);
+	$btns.css('left', 0);
+	$btns.css('z-index','888');
+	$btns.show();
+}
+function FavHide() {
+	$(this).children().eq(0).children('div').eq(0).hide();
+}
+function boxEvent() {
+	var $box = $('#masonry').children();
+	$box.each(function () {
+		$(this).mouseenter(FavShow);
+		$(this).mouseleave(FavHide);
+	});
+}
+
 
 function TouXiang() {
 	/*******我的头像事件 start******/
@@ -104,9 +136,10 @@ function WaterFall(){
 				//调用getList()方法获取要加载的图片信息
 				var $boxes = $(getList());
 				$container.append($boxes).masonry('appended',$boxes);
+				boxEvent();
 			}
 		}
-		item_callback();
+		/*item_callback();*/
 	});
 }
 
@@ -125,7 +158,28 @@ function getList() {
 	for (var i=2; i <=count; i++ ) {
 		if(i!=17 && i!=9 && i!=14 && i!=5 && i!=11 && i!=15) {
 			totalPic++;
-			boxes.push('<div class="box"><img src="images/'+i+'.jpg"><span class="text">文字'+i+'</span></div>');
+			var str = '<div class="box">'
+				+'<div class="img">'
+					+'<a href="#"><img src="images/'+i+'.jpg" /></a>'
+					+'<div class="btns" style="display:none;">'
+						+'<a href="#" class="col">收藏</a>'
+						+'<a href="#" class="fav"><span></span></a>'
+					+'</div>'
+				+'</div>'
+				+'<div class="title">'
+					+'<div class="desc"><a href="#">这是一只可爱的猫</a></div>'
+					+'<div class="favnum">喜欢(122)</div>'
+				+'</div>'
+				+'<div class="comment">'
+					+'<dl>'
+						+'<dt><a href="#"><img src="images/tx1.jpg"/></a></dt>'
+						+'<dd class="author"><a href="#">张益达</a></dd>'
+						+'<dd><a href="#">在北京的日子</a></dd>'
+					+'</dl>'
+				+'</div>'
+			+'</div>';
+
+			boxes.push(str);
 			if(totalPic>=210){
 				flag=false;
 			}
@@ -144,7 +198,7 @@ function init() {
 			totalPic++;
 			$img = $('<div class="img"><a href="#"><img src="images//'+i+'.jpg"></a><div class="btns" style="display:none;">'
 						+'<a href="#" class="col">收藏</a>'
-						+'<a href="#" class="fav">喜欢</a>'
+						+'<a href="#" class="fav"><span></span></a>'
 					+'</div></div>');
 			if(i%4!=0) {
 				fav = '<div class="favnum">喜欢(122)</div>'
@@ -161,31 +215,10 @@ function init() {
 	}
 }
 
-function FavShow() {
-	var $btns = $(this).children().eq(0).children('div').eq(0);
-	$btns.css('top', 0);
-	$btns.css('left', 0);
-	$btns.css('z-index','888');
-	$btns.show();
-}
-function FavHide() {
-	$(this).children().eq(0).children('div').eq(0).hide();
-}
-
-
 $(document).ready(function () {
 	TouXiang();
 	init();
 	WaterFall();
-
-
-	var boxEvent = function () {
-		var $box = $('#masonry').children();
-		$box.each(function () {
-			$(this).mouseenter(FavShow);
-			$(this).mouseleave(FavHide);
-		});
-	}
 	boxEvent();
 });
 </script>

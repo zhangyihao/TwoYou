@@ -22,6 +22,7 @@ body {
 	height:46px;
 	box-shadow:0 1px 5px rgba(35,25,25,0.5);
 }
+/*顶部左侧搜索框和按钮样式 start*/
 #top #leftHeader {
 	height:26px;
 	margin-left:65px;
@@ -51,6 +52,21 @@ body {
 	border:1px solid #ccc;
 	margin-left:5px;
 }
+#top #leftHeader #searchBtn {
+	float:left;
+	height:26px;
+	width:26px;
+	border:none;
+	margin-left:-25px;
+	text-indent:-9999px;
+	background:url("../images/menu_sprite.png") no-repeat 0 -95px;
+}
+#top #leftHeader #searchBtn:hover {
+	cursor:pointer;
+	background:url("../images/menu_sprite.png") no-repeat -50px -95px;
+}
+/*顶部左侧搜索框和按钮样式 end*/
+/*顶部中部logo样式*/
 #top #logo {
 	width:160px;
 	height:40px;
@@ -58,11 +74,41 @@ body {
 	float:left;
 	margin-top:4px;
 }
+/*顶部右侧样式*/
 #top #rightHeader {
 	height:100%;
 	float:right;
 	margin-right:58px;
 }
+	/*顶部右侧登录和注册按钮样式 start*/
+#top #rightHeader dl#login {
+	width:150px;
+	height:100%;
+}
+#top #rightHeader dl#login dd {
+	width:50px;
+	height:30px;
+	line-height:30px;
+	float:right;
+	text-align:center;
+	background: linear-gradient(rgb(250, 250, 250), rgb(242, 242, 242)) repeat scroll 0% 0% transparent;
+	border: 1px solid rgb(217, 217, 217);
+	box-shadow: 0px 1px 0px white inset, 0px 1px 0px rgba(255, 255, 255, 0.3);
+	margin-left:10px;
+	margin-top:8px;
+}
+#top #rightHeader dl#login dd a {
+	color: rgb(68, 68, 68);
+	font-size:14px;
+	text-decoration:none;
+}
+#top #rightHeader dl#login dd:hover {
+	background: linear-gradient(rgb(255, 255, 255), rgb(247, 247, 247)) repeat scroll 0% 0% transparent;
+	border: 1px solid rgb(204, 204, 204);
+	box-shadow: 0px 1px 0px white inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
+}
+	/*顶部右侧登录和注册按钮样式 end*/
+	/*顶部右侧添加、通知、头像按钮样式 start*/
 #top #rightHeader #add {
 	width:45px;
 	height:100%;
@@ -109,6 +155,7 @@ body {
 	background:#fff;
 	position:absolute;
 }
+		/*顶部右侧头像下拉列表样式 start*/
 #top #rightHeader #photo .mytravel ul {
 }
 #top #rightHeader #photo .mytravel ul li {
@@ -161,93 +208,5 @@ body {
 #top #rightHeader #photo .mytravel ul li a.logout {
 	background-position:15px -188px;
 }
-
-
-
-#main {
-	padding:15px 0 0 10px;
-	width:1230px;
-	margin:0 auto;
-}
-
-#main #masonry .box {
-	margin-bottom: 12px;
-	float: left;
-	width: 236px;
-	background:#fff;
-	box-shadow:3px 3px 2px #aaa;
-}
-#main #masonry .box .img {
-	max-width: 100%;
-}
-#main #masonry .box .img .btns {
-	width:236px;
-	background:rgb(200,200,200);
-	position:absolute;
-	border:1px solid orange;
-}
-#main #masonry .box .img .btns a {
-	display:block;
-	width:50px;
-	height:30px;
-	line-height:30px;
-	color:#fff;
-}
-#main #masonry .box .img .btns a.col {
-	float:left;
-	background:red;
-}
-#main #masonry .box .img .btns a.fav {
-	background:green;
-	float:right;
-}
-
-#main #masonry .title {
-	margin:0 auto;
-	width:210px;
-}
-#main #masonry .title .desc {
-	padding:5px 0 10px 0;
-}
-#main #masonry .title .desc a {
-	color:#333;
- }
-#main #masonry .title .favnum {
-	color:#8C7E7E;
-	padding-bottom:10px;
-	margin-top:-5px;
-}
-#main #masonry .comment:hover {
-	background:#E9E9E9;
-}
-#main #masonry .comment dl {
-	height:51px;
-	border-top:1px solid #ddd;
-}
-#main #masonry .comment dt {
-	width:41px;
-	height:41px;
-	float:left;
-	padding:5px 2px 5px 10px;
-}
-#main #masonry .comment dt img {
-	width:35px;
-	height:35px;
-	padding:3px;
-}
-#main #masonry .comment dd {
-	width:160px;
-	height:20px;
-	line-height:20px;
-	float:left;
-	padding-left:3px;
-}
-#main #masonry .comment dd a {
-	color:#999999;
-}
-#main #masonry .comment dd.author {
-	margin-top:5px;
-}
-#main #masonry .comment dd.author a{
-	color:#717171;
-}
+		/*顶部右侧头像下拉列表样式 end*/
+	/*顶部右侧添加、通知、头像按钮样式 end*/
