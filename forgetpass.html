@@ -32,15 +32,13 @@
 	</style>
 </head>
 <body>
-	<div id="login" style="height:180px;margin-top:100px;">
-		<div id="content">
-			<h1>图游</h1>
-			<form name="" aciton="" method="post">
-				<input type="text" id="email" placeholder="请输入电子邮箱" name="" />
-				<div id="msg" style="display:none;">邮箱未注册!</div>
-				<input type="submit" id="loginbtn" value="重置密码" name="" />
-			</form>
-		</div>
+	<div id="content" style="margin-top:100px;">
+		<h1>图游</h1>
+		<form name="" aciton="" method="post">
+			<input type="text" id="email" placeholder="请输入电子邮箱" name="" />
+			<div id="msg" style="display:none;">邮箱未注册!</div>
+			<input type="submit" id="loginbtn" value="重置密码" name="" />
+		</form>
 	</div>
 </body>
 </html>
@@ -48,12 +46,10 @@
 
 $(document).ready(function () {
 	$('#email').focusin(function () {
-		$('#login').height($('#login').height()+50);
 		$('#msg').show();
 	});
 	$('#email').focusout(function () {
 		$('#msg').hide();
-		$('#login').height($('#login').height()-50);
 	});
 });
 

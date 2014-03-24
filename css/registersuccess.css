@@ -1,0 +1,61 @@
+#content {
+		width:80%;
+		margin:0 auto;
+		padding-top:35px;
+		font-family:微软雅黑;
+	}
+	#content h1 {
+		color:#555;
+		font-size:24px;
+		margin-bottom:3px;
+	}
+	#content hr {
+		border-top:1px solid #999999;
+		border-bottom:1px solid #fff;
+	}
+	#content #checkemail {
+		width:30%;
+		margin:0 auto;
+	}
+	#content #checkemail dl {
+		margin-top:20px;
+		color:#505050;
+	}
+	#content #checkemail dl a {
+		display:inline-block;
+		border-radius: 3px 3px 3px 3px;
+		border:1px solid #FB6964;
+		text-align:center;
+		background:#FB6964;
+		color:#fff;
+		text-decoration:none;
+	}
+	#content #checkemail dl a:hover {
+		cursor:pointer;
+		background:#F04843;
+	}
+	#content #checkemail dl dt {
+		font-size:18px;
+		margin-top:10px;
+	}
+	#content #checkemail dl dt span {
+		color:#FB6964;
+		font-size:20px;
+	}
+	#content #checkemail dl dd {
+		font-size:12px;
+		margin-top:10px;
+	}
+	#content #checkemail dl dt a {
+		width:170px;
+		height:30px;
+		line-height:30px;
+		font-size:18px;
+	}
+	#content #checkemail dl dd a {
+		width:90px;
+		height:20px;
+		line-height:20px;
+		font-size:12px;
+		margin-left:5px;
+	}

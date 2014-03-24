@@ -32,21 +32,19 @@
 	</style>
 </head>
 <body>
-	<div id="login">
-		<div id="content">
-			<h1>图游</h1>
-			<form name="" aciton="" method="post">
-				<input type="text" id="email" placeholder="电子邮箱" name="" />
-				<input type="password" id="psw" placeholder="密码" name="" />
-				<div id="msg" style="display:none;">密码必须为6到20位!</div>
-				<div id="accpet">
-					<input type="checkbox" class="agreement" checked="checked">
-					<span>接受《<a href="#" target="_blank">图游科技服务协议</a>》</span></label>
-					<a href="login.html" id="accept_login">登录</a>
-				</div>
-				<input type="submit" id="loginbtn" value="注册" name="" />
-			</form>
-		</div>
+	<div id="content">
+		<h1>图游</h1>
+		<form name="" action="registersuccess.html" method="post">
+			<input type="text" id="email" placeholder="电子邮箱" name="" />
+			<input type="password" id="psw" placeholder="密码" name="" />
+			<div id="msg" style="display:none;">密码必须为6到20位!</div>
+			<div id="accpet">
+				<input type="checkbox" class="agreement" checked="checked">
+				<span>接受《<a href="#" target="_blank">图游科技服务协议</a>》</span></label>
+				<a href="login.html" id="accept_login">登录</a>
+			</div>
+			<input type="submit" id="loginbtn" value="注册" name="" />
+		</form>
 	</div>
 </body>
 </html>
@@ -54,12 +52,10 @@
 
 $(document).ready(function () {
 	$('#email').focusin(function () {
-		$('#login').height($('#login').height()+50);
 		$('#msg').show();
 	});
 	$('#email').focusout(function () {
 		$('#msg').hide();
-		$('#login').height($('#login').height()-50);
 	});
 });
 

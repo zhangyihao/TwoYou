@@ -8,22 +8,20 @@
 	<link type="text/css" rel="stylesheet" href="css/login.css"  />
 </head>
 <body>
-	<div id="login">
-		<div id="content">
-			<h1>登录图游</h1>
-			<form name="" aciton="" method="post">
-				<input type="text" id="email" placeholder="电子邮箱" name="" />
-				<input type="password" id="psw" placeholder="密码" name="" />
-				<div id="msg" style="display:none;">请填写正确的邮箱!</div>
-				<input type="submit" id="loginbtn" value="登录" name="" />
-				<div id="bottom">
-					<ul>
-						<li id="forget"><a href="">忘记密码？</a></li>
-						<li id="register"><a href="register.html">注册</a></li>
-					</ul>
-				</div>
-			</form>
-		</div>
+	<div id="content">
+		<h1>登录图游</h1>
+		<form name="" aciton="" method="post">
+			<input type="text" id="email" placeholder="电子邮箱" name="" />
+			<input type="password" id="psw" placeholder="密码" name="" />
+			<div id="msg" style="display:none;">请填写正确的邮箱!</div>
+			<input type="submit" id="loginbtn" value="登录" name="" />
+			<div id="bottom">
+				<ul>
+					<li id="forget"><a href="forgetpass.html">忘记密码？</a></li>
+					<li id="register"><a href="register.html">注册</a></li>
+				</ul>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
@@ -32,12 +30,12 @@
 $(document).ready(function () {
 	$('#email').focusin(function () {
 		/*$(this).css('border','1px solid #CB2027');*/
-		$('#login').height($('#login').height()+50);
+		/*$('#login').height($('#login').height()+50);*/
 		$('#msg').show();
 	});
 	$('#email').focusout(function () {
 		$('#msg').hide();
-		$('#login').height($('#login').height()-50);
+		/*$('#login').height($('#login').height()-50);*/
 	});
 });
 
