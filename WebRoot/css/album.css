@@ -1,0 +1,78 @@
+#content #title {
+	width:1000px;
+	height:45px;
+	margin:0 auto;
+	background:#FAFAFA;
+	border-radius:2px 2px 2px 2px;
+	border:1px solid #ccc;
+}
+#content #title ul {
+}
+#content #title ul li {
+	height:45px;
+	line-height:45px;
+	float:left;
+	width:80px;
+	text-align:center;
+	border-right:1px solid #ccc;
+}
+#content #title ul li a {
+	display:block;
+	height:45px;
+	line-height:45px;
+	color:#7b7b7b;
+	font-size: 13px;
+}
+#content #title ul li a:hover {
+	display:block;
+	height:45px;
+	line-height:45px;
+	color: #06A9EF;
+}
+#content #title ul li a#select {
+	border-bottom: 2px solid #06A9EF;
+	color: #06A9EF;
+}
+
+#content #album {
+	width:1000px;
+	margin:0 auto;
+	margin-top:10px;
+}
+
+#content #album .album_pics{
+	width:230px;
+	height:280px;
+	margin-right:10px;
+	margin-bottom:10px;
+	background:#fff;
+	border:1px solid #ccc;
+	border-radius:3px 3px 3px 3px;
+	float:left;
+}
+#content #album .album_pics span {
+	display:block;
+	height:30px;
+	line-height:30px;
+	color:#837B7B;
+	margin-left:15px;
+}
+#content #album .album_pics img {
+	width:216px;
+	height:200px;
+	margin:0 7px;
+}
+#content #album .album_pics .edit {
+	display:block;
+	height:30px;
+	line-height:30px;
+	width:216px;
+	background:#F6F6F6;
+	border: 1px solid #ccc;
+	margin:10px 7px;
+	text-align:center;
+	color:#7b7b7b;
+}
+#content #album .album_pics .edit:hover {
+	background:#FCFCFC;
+}
