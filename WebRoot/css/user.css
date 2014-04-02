@@ -1,0 +1,52 @@
+#content #user {
+	width:100%;
+	height:280px;
+}
+#back img {
+	width:100%;
+	height:310px;
+}
+#content #user #inner {
+	width:900px;
+	height:140px;
+	margin:0 auto;
+	padding-top:100px;
+}
+#content #user #headphoto{
+	width:120px;
+	height:120px;
+	margin:10px 0;
+	border:1px solid #809DA8;
+	float:left;
+}
+#content #user #headphoto img {
+	width:120px;
+	height:120px;
+}
+#content #user #username{
+	float:left;
+	font-size:20px;
+	color:#fff;
+	height:26px;
+	line-height:26px;
+	margin:90px 0 0 10px;
+}
+#content #user #editinfo{
+	float:right;
+	margin:90px 15px 0 0;
+	text-align: center;
+	font-size:14px;
+}
+#content #user #editinfo a {
+    float: left;
+    display: inline;
+    width: 110px;
+	height: 35px;
+	line-height: 35px;
+    color: rgb(238, 238, 238);
+    background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.2);
+}
+#content #user #editinfo a:hover {
+	text-decoration:none;
+	background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.4);
+}

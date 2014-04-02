@@ -1,0 +1,117 @@
+/*主体部分样式*/
+#main {
+	padding:15px 0 0 10px;
+	width:1230px;
+	margin:0 auto;
+}
+/*瀑布流展示图片的样式 start*/
+#main #masonry .box {
+	margin-bottom: 12px;
+	float: left;
+	width: 236px;
+	background:#fff;
+	box-shadow:3px 3px 2px #aaa;
+}
+#main #masonry .box .img {
+	max-width: 100%;
+}
+	/*收藏和喜欢按钮样式 start*/
+#main #masonry .box .img .btns {
+	width:236px;
+	position:absolute;
+	margin-top:5px;
+}
+#main #masonry .box .img .btns a {
+	display:block;
+	height:30px;
+	line-height:30px;
+	text-align: center;
+	font-size: 14px;
+	border-radius: 2px 2px 2px 2px;
+	
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+	white-space: nowrap;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+}
+#main #masonry .box .img .btns a.col {
+	float:left;
+	width:50px;
+	background:#DF3B42;
+	margin-left:8px;
+	border: 1px solid #A11A1E;
+}
+#main #masonry .box .img .btns a.col:hover {
+	background: linear-gradient(rgb(244, 93, 104), rgb(229, 70, 70)) repeat scroll 0% 0% transparent;
+	color: rgb(255, 255, 255);
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
+	border: 1px solid rgb(201, 0, 0);
+}
+#main #masonry .box .img .btns a.fav {
+	width:36px;
+	float:right;
+	border: 1px solid rgb(217, 217, 217);
+	box-shadow: 0px 1px 0px white inset, 0px 1px 0px rgba(255, 255, 255, 0.3);
+	background: linear-gradient(rgb(250, 250, 250), rgb(242, 242, 242)) repeat scroll 0% 0% transparent;
+	margin-right:8px;
+}
+#main #masonry .box .img .btns a.fav span {
+	margin: 8px 11px;
+	width:14px;
+	height:14px;
+	display:block;
+	background:url("../images/action_like.png") no-repeat scroll 0px 0px transparent;
+}
+	/*收藏和喜欢按钮样式 end*/
+
+#main #masonry .title {
+	margin:0 auto;
+	width:210px;
+}
+#main #masonry .title .desc {
+	padding:5px 0 10px 0;
+}
+#main #masonry .title .desc a {
+	color:#333;
+ }
+#main #masonry .title .favnum {
+	color:#8C7E7E;
+	padding-bottom:10px;
+	margin-top:-5px;
+}
+#main #masonry .comment:hover {
+	background:#E9E9E9;
+}
+#main #masonry .comment dl {
+	height:51px;
+	border-top:1px solid #ddd;
+}
+#main #masonry .comment dt {
+	width:41px;
+	height:41px;
+	float:left;
+	padding:5px 2px 5px 10px;
+}
+#main #masonry .comment dt img {
+	width:35px;
+	height:35px;
+	padding:3px;
+}
+#main #masonry .comment dd {
+	width:160px;
+	height:20px;
+	line-height:20px;
+	float:left;
+	padding-left:3px;
+}
+#main #masonry .comment dd a {
+	color:#999999;
+}
+#main #masonry .comment dd.author {
+	margin-top:5px;
+}
+#main #masonry .comment dd.author a{
+	color:#717171;
+}
+/*瀑布流展示图片的样式 end*/
