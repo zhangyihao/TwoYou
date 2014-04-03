@@ -134,12 +134,12 @@ function init() {
 	for(var i=3; i<=41; i++) {
 		if(i!=17 && i!=9 && i!=14 && i!=15 && i!=5 && i!=11) {
 			totalPic++;
-			$img = $('<div class="img"><a href="#"><img src="images//'+i+'.jpg"></a><div class="btns" style="display:none;">'
+			$img = $('<div class="img"><a href="#"><img src="images/'+i+'.jpg"></a><div class="btns" style="display:none;">'
 						+'<a href="#" class="col">收藏</a>'
 						+'<a href="#" class="fav"><span></span></a>'
 					+'</div></div>');
 			if(i%4!=0) {
-				fav = '<div class="favnum">喜欢(122)</div>'
+				fav = '<div class="favnum">喜欢(122)</div>';
 			} else {
 				fav = '';
 			}

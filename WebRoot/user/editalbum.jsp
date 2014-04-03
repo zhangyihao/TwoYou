@@ -1,18 +1,25 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title>编辑相册信息</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
-	<link type="text/css" rel="stylesheet" href="../css/basic.css"  />
-	<link type="text/css" rel="stylesheet" href="../css/user.css"  />
-	<link type="text/css" rel="stylesheet" href="../css/album.css"  />
-</head>
+<html>
+	<head>
+		<base href="<%=basePath%>" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>编辑相册信息</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/basic.css"  />
+		<link type="text/css" rel="stylesheet" href="css/user.css"  />
+		<link type="text/css" rel="stylesheet" href="css/album.css"  />
+	</head>
 <body>
 <div id="top">
 	<div id="leftHeader">
 		<h1><em></em></h1>
-		<form name="searchForm" aciton="#" method="get">
+		<form name="searchForm" action="#" method="get">
 			<input type="text" name="key" id="searchInput" />
 			<input type="submit" id="searchBtn" value="search" />
 		</form>
@@ -28,7 +35,7 @@
 		</div>
 		<div id="message"><a href="" title="通知"><em></em></a></div>
 		<div id="photo">
-			<a href="" title="头像"><img src="../images/tx.jpg"/></a>
+			<a href="" title="头像"><img src="images/tx.jpg"/></a>
 			<div class="mytravel" style="display:none;">
 				<ul>
 					<li><a href="" class="self">我的图游</a></li>
@@ -47,9 +54,9 @@
 </div>
 <div id="content">
 	<div id="user">
-		<div id="back" style="position:absolute;z-index:-1;height:100%;width:100%;top:0px;left:0px;"><img src="../images/cover_pic1.jpg" /></div>
+		<div id="back" style="position:absolute;z-index:-1;height:100%;width:100%;top:0px;left:0px;"><img src="images/cover_pic1.jpg" /></div>
 		<div id="inner">
-		 <div id="headphoto"><img src="../images/member_pic.png" alt="头像" /></div>
+		 <div id="headphoto"><img src="images/member_pic.png" alt="头像" /></div>
 		 <div id="username">User Name</div>
 		 <div id="editinfo"><a href="#">编辑个人资料</a></div>
 		</div>
@@ -64,27 +71,27 @@
 	<div id="album">
 		<div class="album_pics">
 			<span>我的相册</span>
-			<a href="#"><img src="../images/36.jpg" alt="图片说明" /></a>
+			<a href="#"><img src="images/36.jpg" alt="图片说明" /></a>
 			<a href="#" class="edit">编辑</a>
 		</div>
 		<div class="album_pics">
 			<span>我的相册</span>
-			<a href="#"><img src="../images/36.jpg" alt="图片说明" /></a>
+			<a href="#"><img src="images/36.jpg" alt="图片说明" /></a>
 			<a href="#" class="edit">编辑</a>
 		</div>
 		<div class="album_pics">
 			<span>我的相册</span>
-			<a href="#"><img src="../images/36.jpg" alt="图片说明" /></a>
+			<a href="#"><img src="images/36.jpg" alt="图片说明" /></a>
 			<a href="#" class="edit">编辑</a>
 		</div>
 		<div class="album_pics">
 			<span>我的相册</span>
-			<a href="#"><img src="../images/36.jpg" alt="图片说明" /></a>
+			<a href="#"><img src="images/36.jpg" alt="图片说明" /></a>
 			<a href="#" class="edit">编辑</a>
 		</div>
 		<div class="album_pics">
 			<span>我的相册</span>
-			<a href="#"><img src="../images/36.jpg" alt="图片说明" /></a>
+			<a href="#"><img src="images/36.jpg" alt="图片说明" /></a>
 			<a href="#" class="edit">编辑</a>
 		</div>
 	</div>
