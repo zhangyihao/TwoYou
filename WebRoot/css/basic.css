@@ -22,7 +22,7 @@ body {
 	height:46px;
 	box-shadow:0 1px 5px rgba(35,25,25,0.5);
 }
-/*¶¥²¿×ó²àËÑË÷¿òºÍ°´Å¥ÑùÊ½ start*/
+/*é¡¶éƒ¨å·¦ä¾§æœç´¢æ¡†å’ŒæŒ‰é’®æ ·å¼ start*/
 #top #leftHeader {
 	height:26px;
 	margin-left:65px;
@@ -65,8 +65,8 @@ body {
 	cursor:pointer;
 	background:url("../images/menu_sprite.png") no-repeat -50px -95px;
 }
-/*¶¥²¿×ó²àËÑË÷¿òºÍ°´Å¥ÑùÊ½ end*/
-/*¶¥²¿ÖĞ²¿logoÑùÊ½*/
+/*é¡¶éƒ¨å·¦ä¾§æœç´¢æ¡†å’ŒæŒ‰é’®æ ·å¼ end*/
+/*é¡¶éƒ¨ä¸­éƒ¨logoæ ·å¼*/
 #top #logo {
 	width:160px;
 	height:40px;
@@ -74,13 +74,18 @@ body {
 	float:left;
 	margin-top:4px;
 }
-/*¶¥²¿ÓÒ²àÑùÊ½*/
+#top #logo a {
+	display:inline-block;
+	width:160px;
+	height:40px;
+}
+/*é¡¶éƒ¨å³ä¾§æ ·å¼*/
 #top #rightHeader {
 	height:100%;
 	float:right;
 	margin-right:58px;
 }
-	/*¶¥²¿ÓÒ²àµÇÂ¼ºÍ×¢²á°´Å¥ÑùÊ½ start*/
+	/*é¡¶éƒ¨å³ä¾§ç™»å½•å’Œæ³¨å†ŒæŒ‰é’®æ ·å¼ start*/
 #top #rightHeader dl#login {
 	width:150px;
 	height:100%;
@@ -107,8 +112,8 @@ body {
 	border: 1px solid rgb(204, 204, 204);
 	box-shadow: 0px 1px 0px white inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
 }
-	/*¶¥²¿ÓÒ²àµÇÂ¼ºÍ×¢²á°´Å¥ÑùÊ½ end*/
-	/*¶¥²¿ÓÒ²àÌí¼Ó¡¢Í¨Öª¡¢Í·Ïñ°´Å¥ÑùÊ½ start*/
+	/*é¡¶éƒ¨å³ä¾§ç™»å½•å’Œæ³¨å†ŒæŒ‰é’®æ ·å¼ end*/
+	/*é¡¶éƒ¨å³ä¾§æ·»åŠ ã€é€šçŸ¥ã€å¤´åƒæŒ‰é’®æ ·å¼ start*/
 #top #rightHeader #add {
 	width:45px;
 	height:100%;
@@ -180,7 +185,7 @@ body {
 	background:#fff;
 	position:absolute;
 }
-		/*¶¥²¿ÓÒ²àÍ·ÏñÏÂÀ­ÁĞ±íÑùÊ½ start*/
+		/*é¡¶éƒ¨å³ä¾§å¤´åƒä¸‹æ‹‰åˆ—è¡¨æ ·å¼ start*/
 #top #rightHeader #photo .mytravel ul {
 }
 #top #rightHeader #photo .mytravel ul li {
@@ -230,5 +235,5 @@ body {
 #top #rightHeader #photo .mytravel ul li a.logout {
 	background-position:15px -188px;
 }
-		/*¶¥²¿ÓÒ²àÍ·ÏñÏÂÀ­ÁĞ±íÑùÊ½ end*/
-	/*¶¥²¿ÓÒ²àÌí¼Ó¡¢Í¨Öª¡¢Í·Ïñ°´Å¥ÑùÊ½ end*/
+		/*é¡¶éƒ¨å³ä¾§å¤´åƒä¸‹æ‹‰åˆ—è¡¨æ ·å¼ end*/
+	/*é¡¶éƒ¨å³ä¾§æ·»åŠ ã€é€šçŸ¥ã€å¤´åƒæŒ‰é’®æ ·å¼ end*/

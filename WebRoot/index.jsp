@@ -46,49 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
    <a name="top"></a>
-	<div id="top">
-		<div id="leftHeader">
-			<h1><em></em></h1>
-			<form name="searchForm" action="#" method="get">
-				<input type="text" name="key" id="searchInput" />
-				<input type="submit" id="searchBtn" value="search" />
-			</form>
-		</div>
-		<a href="index.html"><div id="logo"></div></a>
-		<div id="rightHeader">
-<!-- 登录样式
-			<dl id="login">
-				<dd><a href="">注册</a></dd>
-				<dd><a href="">登录</a></dd>
-			</dl>
--->
-			<div id="add">
-				<a href="" title="添加"><em></em></a>
-				<ul style="display:none">
-					<li><a href="user/publishimage.html">发布图片</a></li>
-					<li><a href="">添加相册</a></li>
-				</ul>
-			</div>
-			<div id="message"><a href="" title="通知"><em></em></a></div>
-			<div id="photo">
-				<a href="" title="头像"><img src="images/tx.jpg"/></a>
-				<div class="mytravel" style="display:none;">
-					<ul>
-						<li><a href="" class="self">我的图游</a></li>
-						<li><a href="" class="album">我的相册</a></li>
-						<li><a href="" class="attention">我的关注</a></li>
-						<li><a href="" class="share">我的分享</a></li>
-						<li><a href="" class="collect">我的收藏</a></li>
-						<li><a href="" class="about">与我相关</a></li>
-						<li><a href="" class="comment">我的评论</a></li>
-						<li><a href="" class="setting">帐号设置</a></li>
-						<li><a href="" class="logout">退出登录</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	<%@ include file="head.jsp" %>
 	<div id="main">
 		<div id="masonry" class="container-fluid">
 			<div class="box">

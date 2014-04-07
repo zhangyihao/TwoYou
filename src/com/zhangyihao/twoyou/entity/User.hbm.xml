@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.zhangyihao.twoyou.entity.User" table="users" catalog="twoyou">
+    <class name="com.zhangyihao.twoyou.entity.User" table="users">
         <id name="id" type="integer">
             <column name="id" />
             <generator class="identity" />
@@ -20,8 +20,17 @@
         <property name="isActive" type="integer">
             <column name="isActive" not-null="true" />
         </property>
-        <property name="code" type="string">
-            <column name="code" length="32" not-null="true" />
+        <property name="activeCode" type="string">
+            <column name="activecode" length="36" not-null="true" />
+        </property>
+        <property name="activeSendTime" type="java.util.Date">
+            <column name="activesendtime" not-null="true" />
+        </property>
+        <property name="passwordCode" type="string">
+            <column name="passwordcode" length="36"/>
+        </property>
+        <property name="passwordSendTime" type="java.util.Date">
+            <column name="passwordsendtime" />
         </property>
         <property name="headImg" type="string">
             <column name="headImg" length="100" />

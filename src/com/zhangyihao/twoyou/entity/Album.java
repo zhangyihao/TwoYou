@@ -1,7 +1,6 @@
 package com.zhangyihao.twoyou.entity;
 
 public class Album {
-
 	private Integer id;
 	private User user;
 	private String name;

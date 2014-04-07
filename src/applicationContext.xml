@@ -9,8 +9,6 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-	<import resource="classpath:xfire-servlet.xml"/>
-
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
@@ -19,7 +17,7 @@
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<!--
+	
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
 			<tx:method name="get*" read-only="true" />
@@ -34,99 +32,27 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<aop:pointcut id="serviceMethod" expression="execution(* com.wuliu.biz.*.*(..))" />
+		<aop:pointcut id="serviceMethod" expression="execution(* com.zhangyihao.twoyou.biz.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod" />
 	</aop:config>
 	
-	
-	<bean id="wuliuService" class="com.wuliu.biz.impl.WuLiuServicesImpl">
-		<property name="orderRecorderDao" ref="orderRecorderDao"></property>
-		<property name="siteDao" ref="siteDao" />
+	<bean id="userDao" class="com.zhangyihao.twoyou.dao.impl.UserDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
-	
-	
-    <bean id="peisongdanDao" class="com.wuliu.dao.impl.PeisongdanDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
-	<bean id="routeDao" class="com.wuliu.dao.impl.RouteDaoImpl" >
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean id="orderDao" class="com.wuliu.dao.impl.OrderDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean id="orderRecorderDao" class="com.wuliu.dao.impl.OrderRecorderDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean id="routeSiteDao" class="com.wuliu.dao.impl.RouteSiteDaoImpl" >
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean id="expenseRuleDao" class="com.wuliu.dao.impl.ExpenseRuleDaoImpl" >
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
-	<bean id="userDao" class="com.wuliu.dao.impl.UserDaoImpl" >
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean id="siteDao" class="com.wuliu.dao.impl.SiteDaoImpl" >
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
-	
-	<bean id="routeBiz" class="com.wuliu.biz.impl.RouteBizImpl" >
-		<property name="routeDao" ref="routeDao" />
-		<property name="routeSiteDao" ref="routeSiteDao" />
-	</bean>
-
-	<bean id="transportmoneyruleBiz" class="com.wuliu.biz.impl.TransportmoneyruleBizImpl" >
-		<property name="expenseRuleDao" ref="expenseRuleDao" />
-		<property name="routeDao" ref="routeDao" />
-		<property name="routeSiteDao" ref="routeSiteDao" />
-		<property name="siteDao" ref="siteDao" />
-	</bean>
-	<bean id="orderBiz" class="com.wuliu.biz.impl.OrderBizImpl" >
-		<property name="orderRecorderDao" ref="orderRecorderDao" />
-		<property name="orderDao" ref="orderDao"></property>
-	</bean>
-	
-	<bean id="userBiz" class="com.wuliu.biz.impl.UserBizImpl" >
+	 
+	 <bean id="userBiz" class="com.zhangyihao.twoyou.biz.impl.UseBizImpl" >
 		<property name="userDao" ref="userDao" />
 	</bean>
-	<bean id="siteBiz" class="com.wuliu.biz.impl.SiteBizImpl" >
-		<property name="siteDao" ref="siteDao" />
-	</bean>
-	
-	
-	<bean id="peisongdanBiz" class="com.wuliu.biz.impl.PeisongdanBizImpl">
-		<property name="peisongdanDao" ref="peisongdanDao"></property>
-		<property name="orderDao" ref="orderDao"></property>
-		<property name="orderRecorderDao" ref="orderRecorderDao"></property>
-	</bean>
-
-	<bean id="orderAction" class="com.wuliu.action.OrderAction" scope="prototype" >
-		<property name="orderBiz" ref="orderBiz" />
-		<property name="transportmoneyruleBiz" ref="transportmoneyruleBiz"></property>
-		<property name="siteBiz" ref="siteBiz"></property>
-	</bean>
-	<bean id="routeAction" class="com.wuliu.action.RouteAction" scope="prototype" >
-		<property name="routeBiz" ref="routeBiz" />
-		<property name="siteBiz" ref="siteBiz"></property>
-	</bean>
-	<bean id="ruleAction" class="com.wuliu.action.RuleAction" scope="prototype" >
-		<property name="transportmoneyruleBiz" ref="transportmoneyruleBiz" />
-	</bean>
-	
-	<bean id="userAction" class="com.wuliu.action.UserAction" scope="prototype" >
-		<property name="userBiz" ref="userBiz" />
-	</bean>
-	<bean id="siteAction" class="com.wuliu.action.SiteAction" scope="prototype" >
-		<property name="siteBiz" ref="siteBiz" />
-	</bean>
-	<bean id="peisongdanAction" class="com.wuliu.action.PeisongdanAction"
-		scope="prototype">
-		<property name="peisongdanBiz" ref="peisongdanBiz"></property>
-		<property name="orderBiz" ref="orderBiz"></property>
-	</bean>
-	 -->
+	 
+	 <bean id="indexAction" class="com.zhangyihao.twoyou.action.IndexAction" scope="prototype">
+	 </bean>
+	 
+	 <bean id="userAction" class="com.zhangyihao.twoyou.action.UserAction" scope="prototype">
+	 	<property name="userBiz" ref="userBiz" />
+	 </bean>
+	 
+	 <bean id="passwordAction" class="com.zhangyihao.twoyou.action.PasswordAction" scope="prototype">
+	 	<property name="userBiz" ref="userBiz" />
+	 </bean>
+	 
 </beans>

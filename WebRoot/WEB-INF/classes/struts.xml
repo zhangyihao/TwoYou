@@ -1,10 +1,44 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
-<struts>
 
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
 	<constant name="struts.ui.theme" value="simple"></constant>
 	
 	<package name="default" namespace="/" extends="struts-default">
+		<action name="index" class="indexAction" method="toIndex">
+			<result name="success" type="dispatcher" >index.jsp</result>
+		</action>
+		<action name="register" class="userAction" method="toRegister">
+			<result name="success" type="dispatcher">register.jsp</result>
+		</action>
+		<action name="send_reg_msg" class="userAction" method="register">
+			<result name="input" type="dispatcher">register.jsp</result>
+			<result name="success" type="redirectAction">login</result>
+		</action>
+		<action name="login" class="userAction" method="tologin">
+			<result name="success" type="dispatcher" >login.jsp</result>
+		</action>
+		<action name="send_login_msg" class="userAction" method="login">
+			<result name="input" type="dispatcher">login.jsp</result>
+			<result name="success" type="redirectAction" >index</result>
+		</action>
+		<action name="forgetpass" class="passwordAction" method="toForgetPass">
+			<result name="success" type="dispatcher" >forgetpass.jsp</result>
+		</action>
+		<action name="send_forgetpas_msg" class="passwordAction" method="forgetPass">
+			<result name="input" type="dispatcher">forgetpass.jsp</result>
+			<result name="success" type="redirectAction" >getpswback</result>
+		</action>
+		<action name="getpswback" class="passwordAction" method="getPasswordBack">
+			<result name="input" type="redirectAction" >forgetpass</result>
+			<result name="success" type="dispatcher" >getpasswordback.jsp</result>
+		</action>
+		<action name="resendgetpswback" class="passwordAction" method="reSendGetPswBackMail" >
+			<result name="input" type="redirectAction" >forgetpass</result>
+			<result name="success" type="redirectAction" >getpswback</result>
+		</action>
 	</package>
 
 </struts>

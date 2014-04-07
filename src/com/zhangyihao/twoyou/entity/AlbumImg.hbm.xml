@@ -8,7 +8,7 @@
             <column name="id" />
             <generator class="identity"></generator>
         </id>
-        <many-to-one name="images" class="Images" fetch="select">
+        <many-to-one name="images" class="com.zhangyihao.twoyou.entity.Images" fetch="select">
             <column name="imgid" not-null="true" />
         </many-to-one>
         <many-to-one name="album" class="com.zhangyihao.twoyou.entity.Album" fetch="select" lazy="false">

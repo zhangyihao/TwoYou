@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,25 +38,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			color:#225599;
 		}
 	</style>
-	<script type="text/javascript">
-	$(document).ready(function () {
-		$('#email').focusin(function () {
-			$('#msg').show();
-		});
-		$('#email').focusout(function () {
-			$('#msg').hide();
-		});
-	});
-	</script>
 </head>
 <body>
 	<div id="content" style="margin-top:100px;">
 		<h1>图游</h1>
-		<form name="" action="" method="post">
-			<input type="text" id="email" placeholder="请输入电子邮箱" name="" />
-			<div id="msg" style="display:none;">邮箱未注册!</div>
-			<input type="submit" id="loginbtn" value="重置密码" name="" />
-		</form>
+		<s:form action="send_forgetpas_msg.action" method="post" namespace="/" >
+			<input type="text" id="email" placeholder="请输入电子邮箱" name="email" />
+			<s:actionerror id="msg" />
+			<input type="submit" id="loginbtn" value="找回密码" />
+		</s:form>
 	</div>
 </body>
 </html>

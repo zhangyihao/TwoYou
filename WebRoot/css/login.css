@@ -65,6 +65,14 @@
 #content #bottom ul li a {
 	color:#877171;
 }
+#content #bottom ul li#rember {
+	float:left;
+	color:#877171;
+}
+#content #bottom ul li#rember input {
+	margin-right:5px;
+	margin-top:2px;
+}
 #content #bottom ul li#forget {
 	width:80px;
 	float:right;

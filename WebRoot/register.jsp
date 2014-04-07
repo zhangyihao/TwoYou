@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,30 +38,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	</style>
 	<script type="text/javascript">
-	$(document).ready(function () {
+	/*$(document).ready(function () {
 		$('#email').focusin(function () {
 			$('#msg').show();
 		});
 		$('#email').focusout(function () {
 			$('#msg').hide();
 		});
-	});
+	});*/
 	</script>	
 </head>
 <body>
 	<div id="content">
 		<h1>图游</h1>
-		<form name="" action="registersuccess.html" method="post">
-			<input type="text" id="email" placeholder="电子邮箱" name="" />
-			<input type="password" id="psw" placeholder="密码" name="" />
-			<div id="msg" style="display:none;">密码必须为6到20位!</div>
+		<s:form action="send_reg_msg.action" method="post" namespace="/" >
+			<input type="text" id="email" placeholder="电子邮箱" name="email" value="${email }" />
+			<input type="password" id="psw" placeholder="密码" name="password" />
+			<s:fielderror fieldName="email" id="msg" ></s:fielderror>
+			<s:fielderror fieldName="password" id="msg" ></s:fielderror>
 			<div id="accpet">
 				<input type="checkbox" class="agreement" checked="checked" />
 				<label><span>接受《<a href="#" target="_blank">图游科技服务协议</a>》</span></label>
-				<a href="login.html" id="accept_login">登录</a>
+				<a href="login.action" id="accept_login">登录</a>
 			</div>
-			<input type="submit" id="loginbtn" value="注册" name="" />
-		</form>
+			<input type="submit" id="loginbtn" value="注册" />
+		</s:form>
 	</div>
 </body>
 </html>

@@ -15,32 +15,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link type="text/css" rel="stylesheet" href="css/registersuccess.css"  />
 </head>
 <body>
-<div id="top">
-		<div id="leftHeader">
-			<h1><em></em></h1>
-			<form name="searchForm" action="#" method="get">
-				<input type="text" name="key" id="searchInput" />
-				<input type="submit" id="searchBtn" value="search" />
-			</form>
-		</div>
-		<div id="logo"><a href="index.html"></a></div>
-		<div id="rightHeader">
-			<dl id="login">
-				<dd><a href="register.html">注册</a></dd>
-				<dd><a href="login.html">登录</a></dd>
-			</dl>
-		</div>
-	</div>
+	<%@ include file="head.jsp" %>
 	<div id="content">
-		<h1>邮箱验证</h1>
+		<h1>找回密码</h1>
 		<hr/>
 		<div id="checkemail">
 			<dl>
-				<dt>邮件已发送至邮箱<span>zyh5540@163.com</span></dt>
-				<dt><a href="">立即查收邮件</a></dt>
+				<dt>邮件已发送至邮箱<span>${sessionScope['EMAIL'] }</span></dt>
+				<dt><a href="${mailAddr }" target="_blank">立即查收邮件</a></dt>
 				<dt>没有收到邮件？</dt>
 				<dd>1、查看下您的垃圾邮件</dd>
-				<dd>2、还是没有，重新发送邮件<a href="">重新发送邮件</a></dd>
+				<dd>2、还是没有，重新发送邮件<a href="resendgetpswback.action?email=${sessionScope['EMAIL'] }">重新发送邮件</a></dd>
 				<dd>3、看来是被拒收了，用其它邮箱试试</dd>
 			</dl>
 		</div>

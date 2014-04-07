@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -15,37 +16,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/basic.css"  />
 	<link type="text/css" rel="stylesheet" href="css/login.css"  />
-	<script type="text/javascript">
-	$(document).ready(function () {
-		$('#email').focusin(function () {
-			/*$(this).css('border','1px solid #CB2027');*/
-			/*$('#login').height($('#login').height()+50);*/
-			$('#msg').show();
-		});
-		$('#email').focusout(function () {
-			$('#msg').hide();
-			/*$('#login').height($('#login').height()-50);*/
-		});
-	});
-	
-	</script>
   </head>
   
 <body>
 	<div id="content">
 		<h1>登录图游</h1>
-		<form name="" action="" method="post">
-			<input type="text" id="email" placeholder="电子邮箱" name="" />
-			<input type="password" id="psw" placeholder="密码" name="" />
-			<div id="msg" style="display:none;">请填写正确的邮箱!</div>
+		<s:form action="send_login_msg.action" method="post" namespace="/" >
+			<input type="text" id="email" placeholder="电子邮箱" name="email" value="${email }" />
+			<input type="password" id="psw" placeholder="密码" name="password" />
+			<s:actionerror id="msg" />
 			<input type="submit" id="loginbtn" value="登录" name="" />
 			<div id="bottom">
 				<ul>
-					<li id="forget"><a href="forgetpass.html">忘记密码？</a></li>
-					<li id="register"><a href="register.html">注册</a></li>
+					<li id="rember"><input type="checkbox" id="" name="remember" value="remember" />下次自动登录</li>
+					<li id="forget"><a href="forgetpass.action">忘记密码？</a></li>
+					<li id="register"><a href="register.action">注册</a></li>
 				</ul>
 			</div>
-		</form>
+		</s:form>
 	</div>
 </body>
 </html>

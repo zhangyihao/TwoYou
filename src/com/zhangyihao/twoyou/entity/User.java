@@ -1,13 +1,17 @@
 package com.zhangyihao.twoyou.entity;
 
-public class User {
+import java.util.Date;
 
+public class User {
 	private Integer id;
 	private String username;
 	private String email;
 	private String password;
 	private Integer isActive;
-	private String code;
+	private String activeCode;
+	private Date activeSendTime;
+	private String passwordCode;
+	private Date passwordSendTime;
 	private String headImg;
 
 	public Integer getId() {
@@ -50,12 +54,36 @@ public class User {
 		this.isActive = isActive;
 	}
 
-	public String getCode() {
-		return this.code;
+	public String getActiveCode() {
+		return activeCode;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setActiveCode(String activeCode) {
+		this.activeCode = activeCode;
+	}
+
+	public Date getActiveSendTime() {
+		return activeSendTime;
+	}
+
+	public void setActiveSendTime(Date activeSendTime) {
+		this.activeSendTime = activeSendTime;
+	}
+
+	public String getPasswordCode() {
+		return passwordCode;
+	}
+
+	public void setPasswordCode(String passwordCode) {
+		this.passwordCode = passwordCode;
+	}
+
+	public Date getPasswordSendTime() {
+		return passwordSendTime;
+	}
+
+	public void setPasswordSendTime(Date passwordSendTime) {
+		this.passwordSendTime = passwordSendTime;
 	}
 
 	public String getHeadImg() {
