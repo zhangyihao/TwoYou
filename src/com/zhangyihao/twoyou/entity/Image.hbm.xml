@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.zhangyihao.twoyou.entity.Images" table="img">
+    <class name="com.zhangyihao.twoyou.entity.Image" table="img">
         <id name="id" type="integer">
             <column name="id" />
             <generator class="identity" />
@@ -17,5 +17,11 @@
         <property name="tags" type="string">
             <column name="tags" length="50" />
         </property>
+        <property name="status" type="string">
+            <column name="status" length="1" />
+        </property>
+        <many-to-one name="album" class="com.zhangyihao.twoyou.entity.Album" fetch="select">
+            <column name="albumId" not-null="true" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

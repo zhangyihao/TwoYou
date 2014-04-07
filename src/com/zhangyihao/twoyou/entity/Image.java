@@ -1,11 +1,13 @@
 package com.zhangyihao.twoyou.entity;
 
-public class Images {
+public class Image {
 
 	private Integer id;
 	private String path;
 	private String description;
 	private String tags;
+	private String status;
+	private Album album;
 
 	public Integer getId() {
 		return this.id;
@@ -35,8 +37,24 @@ public class Images {
 		return this.tags;
 	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+
+	public Album getAlbum() {
+		return this.album;
+	}
+
+	public void setAlbum(Album album) {
+		this.album = album;
 	}
 
 }

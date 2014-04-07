@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="Utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -49,26 +50,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<%@ include file="head.jsp" %>
 	<div id="main">
 		<div id="masonry" class="container-fluid">
-			<div class="box">
-				<div class="img">
-					<a href="#"><img src="images/2.jpg" /></a>
-					<div class="btns" style="display:none;">
-						<a href="#" class="col">收藏</a>
-						<a href="#" class="fav"><span></span></a>
+			<c:forEach items="${requestScope['images'] }" var="image" >
+				<div class="box">
+					<div class="img">
+						<a href="#"><img src="pin/${image.path}" /></a>
+						<div class="btns" style="display:none;">
+							<a href="#" class="col">收藏</a>
+							<a href="#" class="fav"><span></span></a>
+						</div>
+					</div>
+					<div class="title">
+						<div class="desc"><a href="#">${image.description }</a></div>
+						<div class="favnum">喜欢(122)</div>
+					</div>
+					<div class="comment">
+						<dl>
+							<dt><a href="#"><img src="images/tx1.jpg"/></a></dt>
+							<dd class="author"><a href="#">张益达</a></dd>
+							<dd><a href="#">在北京的日子</a></dd>
+						</dl>
 					</div>
 				</div>
-				<div class="title">
-					<div class="desc"><a href="#">这是一只可爱的猫</a></div>
-					<div class="favnum">喜欢(122)</div>
-				</div>
-				<div class="comment">
-					<dl>
-						<dt><a href="#"><img src="images/tx1.jpg"/></a></dt>
-						<dd class="author"><a href="#">张益达</a></dd>
-						<dd><a href="#">在北京的日子</a></dd>
-					</dl>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
 	<p id="back-to-top"><a href="#top" title="返回顶部"><span></span></a></p>

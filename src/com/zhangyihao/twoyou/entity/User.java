@@ -1,6 +1,8 @@
 package com.zhangyihao.twoyou.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class User {
 	private Integer id;
@@ -13,6 +15,8 @@ public class User {
 	private String passwordCode;
 	private Date passwordSendTime;
 	private String headImg;
+
+	private Set<Image> favourites = new HashSet<Image>();
 
 	public Integer getId() {
 		return this.id;
@@ -55,7 +59,7 @@ public class User {
 	}
 
 	public String getActiveCode() {
-		return activeCode;
+		return this.activeCode;
 	}
 
 	public void setActiveCode(String activeCode) {
@@ -63,7 +67,7 @@ public class User {
 	}
 
 	public Date getActiveSendTime() {
-		return activeSendTime;
+		return this.activeSendTime;
 	}
 
 	public void setActiveSendTime(Date activeSendTime) {
@@ -71,7 +75,7 @@ public class User {
 	}
 
 	public String getPasswordCode() {
-		return passwordCode;
+		return this.passwordCode;
 	}
 
 	public void setPasswordCode(String passwordCode) {
@@ -79,7 +83,7 @@ public class User {
 	}
 
 	public Date getPasswordSendTime() {
-		return passwordSendTime;
+		return this.passwordSendTime;
 	}
 
 	public void setPasswordSendTime(Date passwordSendTime) {
@@ -92,6 +96,14 @@ public class User {
 
 	public void setHeadImg(String headImg) {
 		this.headImg = headImg;
+	}
+
+	public Set<Image> getFavourites() {
+		return this.favourites;
+	}
+
+	public void setFavourites(Set<Image> favourites) {
+		this.favourites = favourites;
 	}
 
 }

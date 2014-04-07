@@ -4,10 +4,8 @@ import java.util.Date;
 
 public class Comments {
 
-	// Fields
-
 	private Integer id;
-	private Images images;
+	private Image image;
 	private User user;
 	private String content;
 	private Integer parentId;
@@ -21,12 +19,12 @@ public class Comments {
 		this.id = id;
 	}
 
-	public Images getImages() {
-		return this.images;
+	public Image getImage() {
+		return this.image;
 	}
 
-	public void setImages(Images images) {
-		this.images = images;
+	public void setImage(Image image) {
+		this.image = image;
 	}
 
 	public User getUser() {

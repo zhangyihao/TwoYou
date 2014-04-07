@@ -23,17 +23,21 @@
         <property name="activeCode" type="string">
             <column name="activecode" length="36" not-null="true" />
         </property>
-        <property name="activeSendTime" type="java.util.Date">
-            <column name="activesendtime" not-null="true" />
+        <property name="activeSendTime" type="timestamp">
+            <column name="activesendtime" length="19" not-null="true" />
         </property>
         <property name="passwordCode" type="string">
-            <column name="passwordcode" length="36"/>
+            <column name="passwordcode" length="36" />
         </property>
-        <property name="passwordSendTime" type="java.util.Date">
-            <column name="passwordsendtime" />
+        <property name="passwordSendTime" type="timestamp">
+            <column name="passwordsendtime" length="19" not-null="true" />
         </property>
         <property name="headImg" type="string">
-            <column name="headImg" length="100" />
+            <column name="headImg" length="100" not-null="true" />
         </property>
+        <set name="favourites" table="fav">
+            <key column="userId"></key>
+            <many-to-many class="com.zhangyihao.twoyou.entity.Image" column="imgId" ></many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

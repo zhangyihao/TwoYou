@@ -1,11 +1,15 @@
 package com.zhangyihao.twoyou.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Collection {
 
 	private Integer id;
 	private User user;
 	private String name;
 	private String description;
+	private Set<Image> collectionImgs = new HashSet<Image>();
 
 	public Integer getId() {
 		return this.id;
@@ -37,6 +41,14 @@ public class Collection {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public Set<Image> getCollectionImgs() {
+		return this.collectionImgs;
+	}
+
+	public void setCollectionImgs(Set<Image> collectionImgs) {
+		this.collectionImgs = collectionImgs;
 	}
 
 }

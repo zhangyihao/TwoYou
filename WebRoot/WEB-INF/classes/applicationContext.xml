@@ -39,20 +39,31 @@
 	<bean id="userDao" class="com.zhangyihao.twoyou.dao.impl.UserDaoImpl" >
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="imageDao" class="com.zhangyihao.twoyou.dao.impl.ImageDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	 
 	 
 	 <bean id="userBiz" class="com.zhangyihao.twoyou.biz.impl.UseBizImpl" >
 		<property name="userDao" ref="userDao" />
 	</bean>
+	<bean id="imageBiz" class="com.zhangyihao.twoyou.biz.impl.ImageBizImpl" >
+		<property name="imageDao" ref="imageDao" />
+	</bean>
+	 
+	 
 	 
 	 <bean id="indexAction" class="com.zhangyihao.twoyou.action.IndexAction" scope="prototype">
+	 	<property name="imageBiz" ref="imageBiz" />
 	 </bean>
-	 
 	 <bean id="userAction" class="com.zhangyihao.twoyou.action.UserAction" scope="prototype">
 	 	<property name="userBiz" ref="userBiz" />
 	 </bean>
-	 
 	 <bean id="passwordAction" class="com.zhangyihao.twoyou.action.PasswordAction" scope="prototype">
 	 	<property name="userBiz" ref="userBiz" />
+	 </bean>
+	 <bean id="imageAction" class="com.zhangyihao.twoyou.action.ImageAction" scope="prototype">
+	 	<property name="imageBiz" ref="imageBiz" />
 	 </bean>
 	 
 </beans>

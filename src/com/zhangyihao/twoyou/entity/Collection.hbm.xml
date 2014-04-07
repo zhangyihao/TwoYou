@@ -8,7 +8,7 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="com.zhangyihao.twoyou.entity.User" fetch="select" lazy="false">
+        <many-to-one name="user" class="com.zhangyihao.twoyou.entity.User" fetch="select">
             <column name="userid" not-null="true" />
         </many-to-one>
         <property name="name" type="string">
@@ -17,5 +17,9 @@
         <property name="description" type="string">
             <column name="description" length="200" />
         </property>
+        <set name="collectionImgs" table="collection_img" lazy="true">
+            <key column="collectionId"></key>
+            <many-to-many class="com.zhangyihao.twoyou.entity.Image" column="imgId" ></many-to-many>
+        </set>
     </class>
 </hibernate-mapping>
