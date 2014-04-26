@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+#content {
+	width: 600px;
+	margin: 0 auto;
+	background: #fff;
+	margin-top: 30px;
+	border-radius: 2px 2px 2px 2px;
+}
+
+#content h1 {
+	font-size: 16px;
+	text-indent: 10px;
+	border-bottom: 1px solid #ccc;
+	height: 35px;
+	line-height: 35px;
+}
+
+#content #modalbody {
+	width: 100%;
+	margin-bottom:10px;
+}
+
+#content #modalbody .formitem {
+	width: 100%;
+	margin-top: 15px;
+	text-indent: 20px;
+}
+
+#content #modalbody .formitem strong {
+	display: inline-block;
+	width: 60px;
+	font-size: 13px;
+	line-height: 24px;
+	text-indent: 15px;
+	vertical-align: top;
+}
+
+textarea,.txtinput {
+	background-color: #FFF;
+	border: 1px solid #CCC;
+}
+
+#content #modalbody .formitem .txtinput {
+	width: 440px;
+	height: 26px;
+}
+
+#content #modalbody .formitem textarea {
+	width: 440px;
+	height: 100px;
+}
+
+#content .submit {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #F5F5F5;
+	border-top: 1px solid #ccc;
+}
+
+#content .submit input, #content .submit a {
+	font-size: 14px;
+	border-radius: 3px 3px 3px 3px;
+	border: 1px solid #D6D3CE;
+	color: #fff;
+	background: #FB6964;
+	cursor: pointer;
+	float: right;
+	margin-top: 5px;
+}
+#content .submit a {
+	display:inline-block;
+	width: 80px;
+	height: 28px;
+	line-height:28px;
+	text-align:center;
+	margin-right: 10px;
+}
+#content .submit a.cancel {
+	width:60px;
+}
+#content .submit input {
+	margin-right: 20px;
+	width: 60px;
+	height: 30px;
+}
+#content .submit input:hover,#content .submit a:hover{
+	background: #D65955;
+}
+#content .submit .errorMsg {
+	color:#FB6964;
+	float:right;
+	font-size:14px;
+	margin-right: 10px;
+}

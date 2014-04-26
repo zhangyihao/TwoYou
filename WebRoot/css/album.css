@@ -1,3 +1,4 @@
+@CHARSET "UTF-8";
 #content #title {
 	width:1000px;
 	height:45px;
@@ -15,6 +16,11 @@
 	width:80px;
 	text-align:center;
 	border-right:1px solid #ccc;
+}
+#content #title ul li.left {
+	float:right;
+	border-left:1px solid #ccc;
+	border-right:none;
 }
 #content #title ul li a {
 	display:block;
@@ -61,6 +67,8 @@
 	width:216px;
 	height:200px;
 	margin:0 7px;
+	display: block;
+	border: 1px solid #ccc;
 }
 #content #album .album_pics .edit {
 	display:block;

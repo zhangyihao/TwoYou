@@ -21,6 +21,7 @@ public class PasswordAction extends ActionSupport {
 	}
 	
 	public String forgetPass() {
+		System.out.println(email);
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		session.put("EMAIL", email);
 		return "success";
@@ -38,13 +39,13 @@ public class PasswordAction extends ActionSupport {
 	
 	public String getPasswordBack() {
 		Map<String, Object> session = ActionContext.getContext().getSession();
-		String mail = (String)session.get("EMAIL");
-		if(mail==null || "".equals(mail.trim())) {
+		email = (String)session.get("EMAIL");
+		if(email==null || "".equals(email.trim())) {
 			return "input";
 		}
-		mailAddr = EmailUtil.getMailAddress(mail);
+		mailAddr = EmailUtil.getMailAddress(email);
 		
-		userBiz.sendGetPasswordBackEmail(mail);
+		userBiz.sendGetPasswordBackEmail(email);
 		session.put("EMAIL", null);
 		return "success";
 	}

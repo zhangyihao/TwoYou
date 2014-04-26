@@ -1,0 +1,149 @@
+@CHARSET "UTF-8";
+.errorMsg{
+	width: 800px;
+	color: #FB6964;
+	text-align:center;
+	background:#fff;
+	margin-top:10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding:10px 0;
+}
+.errorMsg li {
+}
+.errorMsg li span {
+	font-size:20px;
+}
+#content {
+	width: 800px;
+	margin: 0 auto;
+	background-color: #fff;
+	margin-top: 20px;
+	border-radius: 2px 2px 2px 2px;
+	border: 1px solid #F7F5F5;
+	box-shadow: 0px 2px 5px rgba(34, 25, 25, 0.4);
+	font-family: "helvetica neue", arial, sans-serif;
+}
+
+#content h1 {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	font-size:20px;
+}
+
+#content .info {
+	width: 90%;
+	margin: 0 auto;
+	border-bottom: 1px dashed  #ccc;
+}
+
+#content .info .showInfo {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+}
+
+#content .info .showInfo span.title {
+	display:block;
+	float: left;
+	font-size: 16px;
+	padding-left: 10px;
+	width:100px;
+}
+
+#content .info .showInfo span._value {
+	float: left;
+	font-size: 14px;
+	margin-left: 30px;
+}
+#content .info .showInfo span._img {
+	float: left;
+	margin:5px 0 5px 30px;
+}
+
+#content .info .showInfo span a {
+	color: #8C7E7E;
+}
+
+#content .info .showInfo span a:hover {
+	color: #C90000;
+}
+
+#content .info .showInfo span.down,#content .info .showInfo span.up {
+	float: right;
+	font-size: 16px;
+	width: 38px;
+	margin-right: 10px;
+}
+
+#content .info .showInfo span.up {
+	background: url("../images/editor_arrow.png") no-repeat right -39px;
+}
+
+#content .info .showInfo span.down {
+	background: url("../images/editor_arrow.png") no-repeat right 20px;
+}
+
+#content .info .hideInfo {
+	width: 100%;
+	color: #8C7E7E;
+	border-top: 1px dashed  #ccc;
+}
+#content .info .hideInfo table {
+	margin-left: 60px;
+	margin-bottom: 10px;
+}
+#content .info .hideInfo table tr {
+	height: 40px;
+	line-height: 40px;
+}
+#content .info .hideInfo table td {
+	font-size: 14px;
+}
+#content .info .hideInfo table td.name {
+	width: 90px;
+	text-align: right;
+	padding-right:5px;
+}
+#content .info .hideInfo dl {
+	width:600px;
+	height:150px;
+	margin:10px 0 10px 60px;
+}
+#content .info .hideInfo dl dd {
+	float:left;
+}
+#content .info .hideInfo dl dd.avatar {
+	width:192px;
+	height:144px;
+	border:1px solid #ccc;
+	border-radius:2px;
+	margin-right:10px;
+}
+#content .info .hideInfo dl dd.buttons {
+	width:380px;
+	margin-top:20px;
+	margin-bottom:60px;
+}
+#content .info .hideInfo input {
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	height: 30px;
+	width: 250px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05) inset;
+}
+
+#content .info .hideInfo input.submitbtn {
+	width:60px;
+	color:#fff;
+	background:#FB6964;
+}
+#content .info .hideInfo input.submitbtn:hover {
+	background:#D65955;
+}
+#content .last {
+	margin-bottom: 20px;
+}

@@ -31,4 +31,15 @@ public class ValidateUtil {
 		return true;
 	}
 	
+	public static boolean isAllowType(String contentType) {
+		String[] contentTypes = {"image/jpeg","image/jpg"};
+		for(int i=0; i<contentTypes.length; i++) {
+			if(contentTypes[i].equalsIgnoreCase(contentType)) {
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	
 }

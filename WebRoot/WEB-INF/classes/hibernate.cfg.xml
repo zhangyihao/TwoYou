@@ -14,9 +14,9 @@
 		<property name="show_sql">true</property>
 		
 		<mapping resource="com/zhangyihao/twoyou/entity/User.hbm.xml" />
-		<mapping resource="com/zhangyihao/twoyou/entity/Comments.hbm.xml" />
+		<mapping resource="com/zhangyihao/twoyou/entity/Comment.hbm.xml" />
 		<mapping resource="com/zhangyihao/twoyou/entity/Album.hbm.xml" />
-		<mapping resource="com/zhangyihao/twoyou/entity/Messages.hbm.xml" />
+		<mapping resource="com/zhangyihao/twoyou/entity/Message.hbm.xml" />
 		<mapping resource="com/zhangyihao/twoyou/entity/Collection.hbm.xml" />
 		<mapping resource="com/zhangyihao/twoyou/entity/Image.hbm.xml" />
 	</session-factory>

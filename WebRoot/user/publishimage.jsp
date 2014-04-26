@@ -1,9 +1,10 @@
+<%--@ page import="org.apache.struts2.components.Include"--%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
@@ -11,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>发布图片</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/basic.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/basic.css"  />
 	<link type="text/css" rel="stylesheet" href="css/publishimage.css"  />
 	<script type="text/javascript">
@@ -32,35 +34,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		return filepath;
 	}
 
-	var imgNum = 0;//记录上传图片的总数
+	var imgNum = 1;//记录上传图片的总数
 	function delImage() {
-		imgNum--;
 		$(this).parent().remove();
-		if(imgNum>2) {
+		imgNum--;
+		if(imgNum==1) {
+			$('#tag').hide();
+		} else if(imgNum>2) {
 			$('#uploadImage').height($('#uploadImage').height()-130);
 		}
-		if(imgNum<1) {
-			$('#showImage').hide();
-			$('#tag').hide();
-		}
+		
 		for(var i=0; i<$('#showImage').children().length; i++) {
 			$('#showImage').children().eq(i).children('div').eq(0).children('img').eq(0).attr('id','imgs_'+(i+1));
 			$('#showImage').children().eq(i).children('div').eq(1).children('textarea').eq(0).attr('id','imgs_text_'+(i+1));
+			$('#showImage').children().eq(i).children('input').eq(0).attr('id','file_upload_'+(i+1));
 		}
 	}
 
 	function showImages() {
+		$('#file_upload_'+imgNum).hide();
+		$('#imgs_del_'+imgNum).show();
+		var path = getPath(document.getElementById('file_upload_'+imgNum));
+		$('#imgs_'+parseInt(imgNum)).attr('src', path);
+		
 		imgNum++;
 		var $imgs = $('<div class="imgs">'+
 			'<div class="imgs_img"><img id="imgs_'+imgNum+'" /></div>'+
-			'<div class="imgs_desc"><textarea id="imgs_text_'+imgNum+'" placeholder="你有什么想说的"></textarea></div>'+
-			'</div>');
-		var $delImg = $('<div class="imgs_del"></div>');
+			'<div class="imgs_desc"><textarea id="imgs_text_'+imgNum+'" name="description" placeholder="你有什么想说的"></textarea></div></div>');
+		var $delImg = $('<div class="imgs_del" id="imgs_del_'+imgNum+'"></div>');
 		$delImg.click(delImage);
+		$delImg.hide();
+		var $fileUpload = $('<input class="file_upload" id="file_upload_'+imgNum+'" type="file" name="image" accept="image/*" onchange="showImages();" />');
+		
 		$imgs.append($delImg);
+		$imgs.append($fileUpload);
+		
 		$('#showImage').append($imgs);
-		var path = getPath(document.getElementById('file_upload'));
-		$('#imgs_'+parseInt(imgNum)).attr('src', path);
+		
 		if(imgNum>3) {
 			$('#uploadImage').height($('#uploadImage').height()+130);
 		}
@@ -72,59 +82,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</script>
 </head>
 <body>
-<div id="top">
-	<div id="leftHeader">
-		<h1><em></em></h1>
-		<form name="searchForm" action="#" method="get">
-			<input type="text" name="key" id="searchInput" />
-			<input type="submit" id="searchBtn" value="search" />
-		</form>
-	</div>
-	<a href="index.html"><div id="logo"></div></a>
-	<div id="rightHeader">
-		<div id="add">
-			<a href="" title="添加"><em></em></a>
-			<ul style="display:none">
-				<li><a href="#">发布图片</a></li>
-				<li><a href="">添加相册</a></li>
-			</ul>
-		</div>
-		<div id="message"><a href="" title="通知"><em></em></a></div>
-		<div id="photo">
-			<a href="" title="头像"><img src="images/tx.jpg"/></a>
-			<div class="mytravel" style="display:none;">
-				<ul>
-					<li><a href="" class="self">我的图游</a></li>
-					<li><a href="" class="album">我的相册</a></li>
-					<li><a href="" class="attention">我的关注</a></li>
-					<li><a href="" class="share">我的分享</a></li>
-					<li><a href="" class="collect">我的收藏</a></li>
-					<li><a href="" class="about">与我相关</a></li>
-					<li><a href="" class="comment">我的评论</a></li>
-					<li><a href="" class="setting">帐号设置</a></li>
-					<li><a href="" class="logout">退出登录</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
+<%@ include file="/head.jsp" %>
 <div id="content">
 	<h1>发布照片</h1>
 	<div id="uploadImage">
-		<form name="" action="album.html" method="post" enctype="multipart/form-data">
+		<s:form action="publish" method="post" namespace="/user/image" enctype="multipart/form-data" >
 			<div id="showImage">
+				<div class="imgs">
+					<div class="imgs_img"><img id="imgs_1" /></div>
+					<div class="imgs_desc"><textarea id="imgs_text_1" name="description" placeholder="你有什么想说的"></textarea></div>
+					<div class="imgs_del" id="imgs_del_1"></div>
+					<script type="text/javascript">$('#imgs_del_1').click(delImage);$('#imgs_del_1').hide();</script>
+					<input class="file_upload" id="file_upload_1" type="file" name="image" accept="image/*" onchange="showImages();" />
+				</div>
 			</div>
-			<input id="file_upload" type="file" accept="image/*" multiple onchange="showImages();" />
 			<div id="tag" style="display:none;">
 				<h2>标签</h2>
 				<input type="text" name="tags" />(请用逗“,”分割各个标签，如：北京,上海)
 				<input id="img_submit" type="submit" name="publish" value="发布" />
 			</div>
-		</form>
+		</s:form>
+		<s:fielderror></s:fielderror>
 	</div>
 </div>
-<div id="bottom">
-	<center>dfsdffffffffffffff</center>
-</div>
+<%@ include file="/foot.jsp" %>
 </body>
 </html>

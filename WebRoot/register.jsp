@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<div id="content">
 		<h1>图游</h1>
-		<s:form action="send_reg_msg.action" method="post" namespace="/" >
+		<s:form action="send_reg_msg" method="post" namespace="/" >
 			<input type="text" id="email" placeholder="电子邮箱" name="email" value="${email }" />
 			<input type="password" id="psw" placeholder="密码" name="password" />
 			<s:fielderror fieldName="email" id="msg" ></s:fielderror>

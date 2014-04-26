@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<div id="content" style="margin-top:100px;">
 		<h1>图游</h1>
-		<s:form action="send_forgetpas_msg.action" method="post" namespace="/" >
+		<s:form action="send_forgetpas_msg" method="post" namespace="/password" >
 			<input type="text" id="email" placeholder="请输入电子邮箱" name="email" />
 			<s:actionerror id="msg" />
 			<input type="submit" id="loginbtn" value="找回密码" />

@@ -42,14 +42,24 @@
 	<bean id="imageDao" class="com.zhangyihao.twoyou.dao.impl.ImageDaoImpl" >
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="albumDao" class="com.zhangyihao.twoyou.dao.impl.AlbumDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	 
 	 
-	 <bean id="userBiz" class="com.zhangyihao.twoyou.biz.impl.UseBizImpl" >
+	 <bean id="userBiz" class="com.zhangyihao.twoyou.biz.impl.UserBizImpl" >
 		<property name="userDao" ref="userDao" />
+		<property name="albumDao" ref="albumDao" />
 	</bean>
 	<bean id="imageBiz" class="com.zhangyihao.twoyou.biz.impl.ImageBizImpl" >
 		<property name="imageDao" ref="imageDao" />
+		<property name="albumDao" ref="albumDao" />
 	</bean>
+	<bean id="albumBiz" class="com.zhangyihao.twoyou.biz.impl.AlbumBizImpl" >
+		<property name="albumDao" ref="albumDao" />
+		<property name="imageDao" ref="imageDao" />
+	</bean>
+	
 	 
 	 
 	 
@@ -64,6 +74,11 @@
 	 </bean>
 	 <bean id="imageAction" class="com.zhangyihao.twoyou.action.ImageAction" scope="prototype">
 	 	<property name="imageBiz" ref="imageBiz" />
+	 	<property name="albumBiz" ref="albumBiz" />
+	 </bean>
+	 <bean id="albumAction" class="com.zhangyihao.twoyou.action.AlbumAction" scope="prototype">
+	 	<property name="imageBiz" ref="imageBiz" />
+	 	<property name="albumBiz" ref="albumBiz" />
 	 </bean>
 	 
 </beans>

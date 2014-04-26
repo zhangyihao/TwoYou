@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -25,8 +26,7 @@ public class ImageDaoImpl extends HibernateDaoSupport implements ImageDao {
 	}
 
 	@Override
-	public void delete(Integer id) {
-		Image image = get(id);
+	public void delete(Image image) {
 		this.getHibernateTemplate().delete(image);
 	}
 
@@ -72,4 +72,21 @@ public class ImageDaoImpl extends HibernateDaoSupport implements ImageDao {
 			}
 		});
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Image> getByAlbum(Integer albumId) {
+		return (List<Image>)this.getHibernateTemplate().find("from Image where album.id=? and status='0'", albumId);
+	}
+
+	@Override
+	public void updateAlbum(Integer oldAlbumId, Integer newAlbumId) {
+		SessionFactory sessionFactory = this.getHibernateTemplate().getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("update Image t set t.album.id=? where t.album.id=?");
+		query.setInteger(0, newAlbumId);
+		query.setInteger(1, oldAlbumId);
+		query.executeUpdate();
+	}
+	
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.zhangyihao.twoyou.entity.Replay" table="replay">
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="comment" class="com.zhangyihao.twoyou.entity.Comment" fetch="select" lazy="false">
+            <column name="commentId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="toReplayer" class="com.zhangyihao.twoyou.entity.User" fetch="select" lazy="false">
+            <column name="toReplayerId" not-null="true" />
+        </many-to-one>
+         <many-to-one name="replayer" class="com.zhangyihao.twoyou.entity.User" fetch="select" lazy="false">
+            <column name="replayId" not-null="true" />
+        </many-to-one>
+        <property name="replayTime" type="timestamp">
+            <column name="replayTime" length="19" not-null="true" />
+        </property>
+        <property name="replayContent" type="string">
+            <column name="replayContent" length="200" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

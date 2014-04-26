@@ -5,6 +5,12 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	 <!-- 上传的全部文件的最大限制-->
+     <constant name="struts.multipart.maxSize" value="41943034"/>
+     <!-- 上传文件的临时存放目录 -->
+     <constant name="struts.multipart.saveDir" value="/temp/" />
+     <constant name="struts.custom.i18n.resources" value="com.zhangyihao.twoyou.action.fileuploadmessage" />
 	
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="index" class="indexAction" method="toIndex">
@@ -24,21 +30,126 @@
 			<result name="input" type="dispatcher">login.jsp</result>
 			<result name="success" type="redirectAction" >index</result>
 		</action>
+	</package>
+	
+	<package name="password" namespace="/password" extends="struts-default">
 		<action name="forgetpass" class="passwordAction" method="toForgetPass">
-			<result name="success" type="dispatcher" >forgetpass.jsp</result>
+			<result name="success" type="dispatcher" >/forgetpass.jsp</result>
 		</action>
 		<action name="send_forgetpas_msg" class="passwordAction" method="forgetPass">
-			<result name="input" type="dispatcher">forgetpass.jsp</result>
+			<result name="input" type="dispatcher">/forgetpass.jsp</result>
 			<result name="success" type="redirectAction" >getpswback</result>
 		</action>
 		<action name="getpswback" class="passwordAction" method="getPasswordBack">
 			<result name="input" type="redirectAction" >forgetpass</result>
-			<result name="success" type="dispatcher" >getpasswordback.jsp</result>
+			<result name="success" type="dispatcher" >/getpasswordback.jsp</result>
 		</action>
 		<action name="resendgetpswback" class="passwordAction" method="reSendGetPswBackMail" >
 			<result name="input" type="redirectAction" >forgetpass</result>
 			<result name="success" type="redirectAction" >getpswback</result>
 		</action>
 	</package>
-
+	
+	<package name="user" namespace="/user" extends="struts-default">
+		<global-results>
+			<result name="success" type="redirectAction" >
+				<param name="actionName">editinfo</param>
+				<param name="model">${model}</param>
+			</result>
+			<result name="input" type="dispatcher" >/user/edituserinfo.jsp</result>
+		</global-results>
+		
+		<action name="editinfo" class="userAction" method="toEditUserInfo" >
+			<result name="editinfo" type="dispatcher" >/user/edituserinfo.jsp</result>
+		</action>
+		<action name="editbasic" class="userAction" method="editBasicInfo" >
+		</action>
+		<action name="editemail" class="userAction" method="editEmail" >
+		</action>
+		<action name="editpassword" class="userAction" method="editPassword" >
+		</action>
+		<action name="editheadimg" class="userAction" method="editHeadImg" >
+		</action>
+	</package>
+	
+	<package name="image" namespace="/user/image" extends="struts-default">
+		<global-results>
+			<result name="toAlbumImage" type="redirectAction" >
+				<param name="namespace">/user/album</param>
+				<param name="actionName">albumdetail</param>
+				<param name="albumId">${albumId}</param>
+			</result>
+			<result name="toAlbumList" type="redirectAction" >
+				<param name="namespace">/user/album</param>
+				<param name="actionName">seeAlbum</param>
+			</result>
+		</global-results>
+	
+		<action name="pubimg" class="imageAction" method="toPublicImage">
+			<result name="success" type="dispatcher" >/user/publishimage.jsp</result>
+		</action>
+		<action name="publish" class="imageAction" method="publishImage">
+			<!-- 限制图片的格式和图片的大小 -->
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpeg,image/jpg</param>
+                <!-- 单张图片最大为3M -->
+                <param name="maximumSize">3145728</param>
+            </interceptor-ref>
+            
+            <!-- 默认的拦截器，必须要写 -->
+            <interceptor-ref name="defaultStack" />
+			<result name="success" type="dispatcher" >/user/publishimage.jsp</result>
+			<result name="input" type="dispatcher" >/user/publishimageerror.jsp</result>
+		</action>
+		<action name="movimg" class="imageAction" method="moveImage">
+		</action>
+		<action name="delimg" class="imageAction" method="delImageBatch">
+		</action>
+		<action name="editimg" class="imageAction" method="toEditImage">
+			<result name="success" type="dispatcher" >/user/editimage.jsp</result>
+		</action>
+		<action name="send_editImage_msg" class="imageAction" method="editImage">
+			<result name="success" type="redirectAction" >
+				<param name="namespace">/user/album</param>
+				<param name="actionName">albumdetail</param>
+				<param name="albumId">${albumId}</param>
+			</result>
+		</action>
+		<action name="showimg" class="imageAction" method="showImage">
+			<result name="success" type="dispatcher">/user/showimage.jsp</result>
+		</action>
+	</package>
+	
+	<package name="album" namespace="/user/album" extends="struts-default">
+		<action name="seeAlbum" class="albumAction" method="seeAlbum">
+			<result name="success" type="dispatcher" >/user/album.jsp</result>
+		</action>
+		<action name="addAlbum" class="albumAction" method="toAddAlbum">
+			<result name="success" type="dispatcher" >/user/addalbum.jsp</result>
+		</action>
+		<action name="send_addAlbum_msg" class="albumAction" method="addAlbum">
+			<result name="success" type="redirectAction" >seeAlbum</result>
+			<result name="input" type="dispatcher" >/user/addalbum.jsp</result>
+		</action>
+		<action name="editAlbum" class="albumAction" method="toEditAlbum">
+			<result name="success" type="dispatcher" >/user/editalbum.jsp</result>
+			<result name="input" type="redirectAction" >seeAlbum</result>
+		</action>
+		<action name="send_editAlbum_msg" class="albumAction" method="editAlbum">
+			<result name="success" type="redirectAction" >seeAlbum</result>
+			<result name="input" type="dispatcher" >/user/editalbum.jsp</result>
+		</action>
+		<action name="send_delAlbum_msg" class="albumAction" method="delAlbum">
+			<result name="success" type="redirectAction" >seeAlbum</result>
+		</action>
+		<action name="albumdetail" class="albumAction" method="albumDetail">
+			<result name="success" type="dispatcher" >/user/albumdetail.jsp</result>
+			<result name="input" type="redirectAction" >seeAlbum</result>
+		</action>
+		<action name="albummanage" class="albumAction" method="manageAlbum">
+			<result name="success" type="dispatcher" >/user/manage_image_bat.jsp</result>
+			<result name="input" type="redirectAction" >seeAlbum</result>
+		</action>
+	</package>
+	
 </struts>

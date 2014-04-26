@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/basic.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/basic.css"  />
 	<link type="text/css" rel="stylesheet" href="css/index.css"  />
 	<style type="text/css">

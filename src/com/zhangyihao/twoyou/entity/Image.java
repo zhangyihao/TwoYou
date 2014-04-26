@@ -1,5 +1,7 @@
 package com.zhangyihao.twoyou.entity;
 
+import java.util.Date;
+
 public class Image {
 
 	private Integer id;
@@ -8,6 +10,7 @@ public class Image {
 	private String tags;
 	private String status;
 	private Album album;
+	private Date pubTime;
 
 	public Integer getId() {
 		return this.id;
@@ -55,6 +58,14 @@ public class Image {
 
 	public void setAlbum(Album album) {
 		this.album = album;
+	}
+	
+	public void setPubTime(Date pubTime) {
+		this.pubTime = pubTime;
+	}
+	
+	public Date getPubTime() {
+		return this.pubTime;
 	}
 
 }

@@ -15,6 +15,9 @@ public class User {
 	private String passwordCode;
 	private Date passwordSendTime;
 	private String headImg;
+	private String headImgLarge;
+	private String headImgMedium;
+	private String headImgSmall;
 
 	private Set<Image> favourites = new HashSet<Image>();
 
@@ -104,6 +107,30 @@ public class User {
 
 	public void setFavourites(Set<Image> favourites) {
 		this.favourites = favourites;
+	}
+
+	public String getHeadImgLarge() {
+		return headImgLarge;
+	}
+
+	public void setHeadImgLarge(String headImgLarge) {
+		this.headImgLarge = headImgLarge;
+	}
+
+	public String getHeadImgMedium() {
+		return headImgMedium;
+	}
+
+	public void setHeadImgMedium(String headImgMedium) {
+		this.headImgMedium = headImgMedium;
+	}
+
+	public String getHeadImgSmall() {
+		return headImgSmall;
+	}
+
+	public void setHeadImgSmall(String headImgSmall) {
+		this.headImgSmall = headImgSmall;
 	}
 
 }

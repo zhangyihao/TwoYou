@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.zhangyihao.twoyou.entity.Comment" table="comments">
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="image" class="com.zhangyihao.twoyou.entity.Image" fetch="select" lazy="false">
+            <column name="imgId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="com.zhangyihao.twoyou.entity.User" fetch="select" lazy="false">
+            <column name="userId" not-null="true" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="200" not-null="true" />
+        </property>
+        <property name="commentTime" type="timestamp">
+            <column name="commentTime" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

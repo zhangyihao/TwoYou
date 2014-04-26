@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<div id="content">
 		<h1>登录图游</h1>
-		<s:form action="send_login_msg.action" method="post" namespace="/" >
+		<s:form action="send_login_msg" method="post" namespace="/" >
 			<input type="text" id="email" placeholder="电子邮箱" name="email" value="${email }" />
 			<input type="password" id="psw" placeholder="密码" name="password" />
 			<s:actionerror id="msg" />
@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="bottom">
 				<ul>
 					<li id="rember"><input type="checkbox" id="" name="remember" value="remember" />下次自动登录</li>
-					<li id="forget"><a href="forgetpass.action">忘记密码？</a></li>
+					<li id="forget"><a href="password/forgetpass.action">忘记密码？</a></li>
 					<li id="register"><a href="register.action">注册</a></li>
 				</ul>
 			</div>

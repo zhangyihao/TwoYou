@@ -20,6 +20,9 @@
         <property name="status" type="string">
             <column name="status" length="1" />
         </property>
+        <property name="pubTime" type="date">
+            <column name="pubtime" not-null="true"/>
+        </property>
         <many-to-one name="album" class="com.zhangyihao.twoyou.entity.Album" fetch="select">
             <column name="albumId" not-null="true" />
         </many-to-one>

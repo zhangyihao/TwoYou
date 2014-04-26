@@ -30,7 +30,7 @@
             <column name="passwordcode" length="36" />
         </property>
         <property name="passwordSendTime" type="timestamp">
-            <column name="passwordsendtime" length="19" not-null="true" />
+            <column name="passwordsendtime" length="19" />
         </property>
         <property name="headImg" type="string">
             <column name="headImg" length="100" not-null="true" />
